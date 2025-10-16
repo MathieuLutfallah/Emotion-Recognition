@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+
+# PyTorch and model checkpoints
+# Keep savedModels but ignore other loose checkpoint files
+*.pth
+*.pt
+*.ckpt
+
+# Model weights
+*.dat
+
+# Keep these specific model directories tracked
+!savedModels/
+!savedModels/**
+
+# Data folders (raw or processed)
+data/
+datasets/
+*.csv
+*.tsv
+*.zip
+*.tar
+*.tar.gz
+*.h5
+*.npy
+*.npz
+
+# Logs and runs
+logs/
+wandb/
+runs/
+tensorboard/
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

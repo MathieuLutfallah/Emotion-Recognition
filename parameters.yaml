@@ -1,0 +1,137 @@
+Debug: false
+
+UsenormedWeights: false
+
+loadnet: true
+loadnet_path: savedModels/id2900/model1
+
+batchsize_eval: 1
+batchsize_test: 12
+batchsize_train: 16
+
+color: 0.0
+best_prec1: 0
+
+dataAugmentation: true
+epochs: 100
+
+evaluationMode: 0
+id: 1800
+logPath: ./log/
+lr: 0.0001
+
+modelSavePath: SavedModel
+networkName: totalImage
+
+numberOfFrames: 3
+
+stoppingCriteria: 30
+
+tensorboardFile: ./tensorboarddata/
+
+withTest: false
+
+numberOfClasses: 7
+
+getClassWeight: true
+
+notTrainBackBoneNetwork: false
+
+printWeights: false
+
+Binary: true
+
+Loss: BCE
+
+Normalization: false
+
+useVideos: true
+
+dataset: CK
+
+fold: 1
+
+weights_res:
+  Resnet:
+    featureVectoreSize: 512
+    path: ./pretrain_model/Resnet18_FER+_pytorch.pth.tar
+  Mean:
+    dimension: 1
+
+networkCK:
+  Resnet:
+    featureVectoreSize: 512
+    path: ./pretrain_model/Resnet18_FER+_pytorch.pth.tar
+  FC1:
+    input_size: 512
+    output_size: 256
+  ReLU1: _
+  DropOut1:
+    p1: 0.3
+  FC2:
+    input_size: 256
+    output_size: 64
+  ReLU2: _
+  DropOut2:
+    p2: 0.3
+  FC3:
+    input_size: 64
+    output_size: 1
+  Sigmoid: _
+
+
+
+cate2labelDiscreteCK:
+  0: Happy
+  1: Angry
+  2: Disgust
+  3: Fear
+  4: Sad
+  5: Contempt
+  6: Surprise
+  Angry: 1
+  Disgust: 2
+  Fear: 3
+  Happy: 0
+  Contempt: 5
+  Sad: 4
+  Surprise: 6
+
+
+networkRT:
+  Resnet:
+    featureVectoreSize: 512
+    path: ./pretrain_model/Resnet18_FER+_pytorch.pth.tar
+  GRU:
+    bidirectional: true
+    hidden_size: 128
+    input_size: 512
+    num_layers: 1
+  Mean:
+    dimension: 2
+  FC1:
+    input_size: 256
+    output_size: 128
+  ReLU1: _
+  DropOut1:
+    p1: 0.3
+  FC2:
+    input_size: 128
+    output_size: 64
+  ReLU2: _
+  DropOut2:
+    p2: 0.3
+  FC3:
+    input_size: 64
+    output_size: 3
+
+
+paths:
+  dlib_predictor: 'faceDetectionFiles/shape_predictor_5_face_landmarks.dat'
+  dlib_cnn: 'faceDetectionFiles/mmod_human_face_detector.dat'
+
+roi:
+  center_x: 960     # x-coordinate of screen center
+  center_y: 540     # y-coordinate of screen center
+  width: 500        # width of region to capture
+  height: 500       # height of region to capture
